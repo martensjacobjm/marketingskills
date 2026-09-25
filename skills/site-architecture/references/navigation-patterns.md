@@ -295,11 +295,11 @@ Rules:
 
 ## Navigation for SEO
 
-Internal links in navigation pass PageRank. Use this strategically:
+Internal links in navigation help search engines discover pages and pass PageRank, which Google says "continues to be part of our core ranking systems" ([ranking systems guide](https://developers.google.com/search/docs/appearance/ranking-systems-guide)) [V]. Placement weighting below is a practitioner heuristic [H]; Google does not document relative weights:
 
-- **Header nav links are strongest** — put your most important pages here
-- **Footer links pass less value** but still matter — good for comparison pages, location pages
-- **Sidebar links** help with section-level authority — good for blog categories, doc sections
+- **Header nav links** — put your most important pages here [H]
+- **Footer links** — good for comparison pages, location pages [H]
+- **Sidebar links** — good for blog categories, doc sections [H]
 - **Breadcrumbs** provide structural signals to search engines — implement with schema markup
 - **Don't use JavaScript-only nav** — search engines need crawlable HTML links
 - **Use descriptive anchor text** — "Analytics Features" not just "Features"

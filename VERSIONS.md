@@ -6,13 +6,13 @@ Current versions of all skills. Agents can compare against local versions to che
 |-------|---------|--------------|
 | ab-test-setup | 1.2.0 | 2026-03-14 |
 | ad-creative | 1.2.0 | 2026-03-14 |
-| ai-seo | 1.2.0 | 2026-03-14 |
+| ai-seo | 1.3.0 | 2026-09-25 |
 | analytics-tracking | 1.2.0 | 2026-03-14 |
 | churn-prevention | 1.2.0 | 2026-03-14 |
 | cold-email | 1.2.0 | 2026-03-14 |
-| competitor-alternatives | 1.2.0 | 2026-03-14 |
+| competitor-alternatives | 1.2.1 | 2026-09-25 |
 | content-strategy | 1.2.0 | 2026-03-14 |
-| copy-editing | 1.2.0 | 2026-03-14 |
+| copy-editing | 1.3.1 | 2026-09-25 |
 | copywriting | 1.2.0 | 2026-03-14 |
 | email-sequence | 1.2.0 | 2026-03-14 |
 | form-cro | 1.2.0 | 2026-03-14 |
@@ -28,17 +28,25 @@ Current versions of all skills. Agents can compare against local versions to che
 | popup-cro | 1.2.0 | 2026-03-14 |
 | pricing-strategy | 1.2.0 | 2026-03-14 |
 | product-marketing-context | 1.2.0 | 2026-03-14 |
-| programmatic-seo | 1.2.0 | 2026-03-14 |
+| programmatic-seo | 1.3.0 | 2026-09-25 |
 | referral-program | 1.2.0 | 2026-03-14 |
 | revops | 1.2.0 | 2026-03-14 |
 | sales-enablement | 1.2.0 | 2026-03-14 |
-| schema-markup | 1.2.0 | 2026-03-14 |
-| seo-audit | 1.2.0 | 2026-03-14 |
+| schema-markup | 1.3.0 | 2026-09-25 |
+| seo-audit | 1.3.0 | 2026-09-25 |
 | signup-flow-cro | 1.2.0 | 2026-03-14 |
-| site-architecture | 1.2.0 | 2026-03-14 |
+| site-architecture | 1.3.0 | 2026-09-25 |
 | social-content | 1.2.0 | 2026-03-14 |
 
 ## Recent Changes
+
+### 2026-09-25
+- Evidence-based correction pass for SEO and AI search skills, using a primary-source evidence register (Google AI optimization guide 2026-07-10, Search Central changelog, Bing Webmaster docs, OpenAI/Anthropic/Perplexity/Apple crawler docs)
+- `ai-seo` (1.3.0): removed unsourced statistics (45% AI Overview share, 58% click loss, citation shares, SE Ranking/ZipTie figures, per-method GEO boosts), fixed answer lengths, llms.txt/`pricing.md` and FAQ/HowTo schema as AI levers; corrected crawler tokens (search vs training); added eligibility checks, non-commodity content guidance, first-party measurement (Search Console Generative AI report, Bing AI Performance), [V]/[R]/[H] evidence tags and `references/evidence.md`; evals updated
+- `schema-markup` (1.3.0): FAQ rich result gone since 2026-05-07, HowTo since 2023, sitelinks search box since 2024; no special schema for AI; evals updated
+- `seo-audit` (1.3.0): CWV at 75th percentile, Mobile-Friendly Test retired, spam-policy definitions, AI search eligibility quick checks; eval updated
+- `programmatic-seo`, `site-architecture` (1.3.0): spam-policy sourcing, fan-out page warning, heuristics labeled
+- `competitor-alternatives` (1.2.1), `copy-editing` (1.3.1): removed FAQ-schema and stale-citation claims
 
 ### 2026-03-14
 - Added `lead-magnets` skill for lead magnet strategy, format selection, and conversion optimization

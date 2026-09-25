@@ -4,7 +4,7 @@
     {
       "id": 1,
       "prompt": "Add schema markup to our SaaS product's homepage. We're a project management tool called TaskFlow. We need Organization schema and any other relevant types.",
-      "expected_output": "Should check for product-marketing-context.md first. Should implement Organization schema in JSON-LD format with all required and recommended properties (name, url, logo, description, sameAs for social profiles). Should recommend additional schema types for a SaaS homepage: WebSite (with SearchAction if applicable), SoftwareApplication or Product. Should use @graph for multiple schema types on one page. Should provide the complete JSON-LD code ready to implement. Should recommend validation with Google's Rich Results Test and Schema.org validator.",
+      "expected_output": "Should check for product-marketing-context.md first. Should implement Organization schema in JSON-LD format with all required and recommended properties (name, url, logo, description, sameAs for social profiles). Should recommend additional schema types for a SaaS homepage: WebSite (for site names; note the sitelinks search box that SearchAction enabled was removed from Google in Nov 2024), SoftwareApplication or Product. Should use @graph for multiple schema types on one page. Should provide the complete JSON-LD code ready to implement. Should recommend validation with Google's Rich Results Test and Schema.org validator.",
       "assertions": [
         "Checks for product-marketing-context.md",
         "Implements Organization schema in JSON-LD",
@@ -19,14 +19,14 @@
     {
       "id": 2,
       "prompt": "We have a FAQ page with 20 questions about our product. How do I add FAQ schema to get the rich results in Google?",
-      "expected_output": "Should implement FAQPage schema in JSON-LD format. Should show the correct structure: FAQPage as mainEntity containing Question items, each with acceptedAnswer. Should provide a complete code example with 2-3 sample questions. Should explain that FAQ schema can enable rich results showing questions/answers directly in search. Should note Google's guidelines for FAQ schema (factual answers, not promotional). Should recommend validation approach.",
+      "expected_output": "Should tell the user up front that Google stopped showing the FAQ rich result on 2026-05-07 (docs removed 2026-06-15), so FAQPage markup will not produce FAQ rich results in Google. Should not promise AI-citation benefits (unverified; Google says no special schema is needed for AI features). May still show the correct FAQPage JSON-LD structure (FAQPage > mainEntity > Question > acceptedAnswer) if the user wants valid schema.org markup for other consumers, noting it is harmless. Should recommend keeping the visible FAQ content if it helps users and suggest schema types that still earn rich results where relevant (e.g. Product, Organization, BreadcrumbList).",
       "assertions": [
-        "Implements FAQPage schema in JSON-LD",
-        "Shows correct nested structure (FAQPage > Question > Answer)",
-        "Provides complete code example",
-        "Explains rich result benefits",
-        "Notes Google's FAQ schema guidelines",
-        "Recommends validation"
+        "States the FAQ rich result is no longer shown in Google (since 2026-05-07)",
+        "Does not promise FAQ rich results",
+        "Does not claim FAQ schema improves AI citations",
+        "If code is provided, shows correct nested structure (FAQPage > Question > Answer)",
+        "Recommends keeping visible FAQ content for users",
+        "Suggests schema types that still earn rich results where relevant"
       ],
       "files": []
     },

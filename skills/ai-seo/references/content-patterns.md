@@ -1,72 +1,77 @@
 # AEO and GEO Content Patterns
 
-Reusable content block patterns optimized for answer engines and AI citation.
+Reusable content block patterns for pages that answer questions clearly. Use them because they help readers; none of them has a documented AI-citation effect.
+
+Google: "You don't need to write in a specific way just for generative AI search," there is "no ideal page length," and content does not need to be chunked [V]. Bing: "Clear headings, tables, and FAQ sections help surface key information" and "Examples, data, and cited sources help build trust" [V]. Sources: [evidence.md](evidence.md).
+
+Ground rules for every pattern:
+- No fixed word counts for answers, paragraphs or passages (no primary source supports one)
+- Only real statistics, quotes and sources. The examples below use placeholders or verified sources; never invent numbers or expert quotes
+- Structure serves the reader; don't restructure a good page "for AI"
 
 ---
 
 ## Contents
-- Answer Engine Optimization (AEO) Patterns (Definition Block, Step-by-Step Block, Comparison Table Block, Pros and Cons Block, FAQ Block, Listicle Block)
-- Generative Engine Optimization (GEO) Patterns (Statistic Citation Block, Expert Quote Block, Authoritative Claim Block, Self-Contained Answer Block, Evidence Sandwich Block)
-- Domain-Specific GEO Tactics (Technology Content, Health/Medical Content, Financial Content, Legal Content, Business/Marketing Content)
-- Voice Search Optimization (Question Formats for Voice, Voice-Optimized Answer Structure)
+- Answer Patterns (Definition Block, Step-by-Step Block, Comparison Table Block, Pros and Cons Block, FAQ Block, Listicle Block)
+- Evidence Patterns (Statistic Citation Block, Expert Quote Block, Authoritative Claim Block, Key Takeaway Block, Evidence Sandwich Block)
+- Domain-Specific Authority Signals (Technology, Health/Medical, Financial, Legal, Business/Marketing)
+- Voice and Conversational Queries
 
-## Answer Engine Optimization (AEO) Patterns
+## Answer Patterns
 
-These patterns help content appear in featured snippets, AI Overviews, voice search results, and answer boxes.
+Formats that help readers find the answer quickly. They also suit featured snippets and AI features, but no platform documents a format requirement.
 
 ### Definition Block
 
-Use for "What is [X]?" queries.
+Use for "What is [X]?" topics.
 
 ```markdown
 ## What is [Term]?
 
-[Term] is [concise 1-sentence definition]. [Expanded 1-2 sentence explanation with key characteristics]. [Brief context on why it matters or how it's used].
+[Term] is [concise definition]. [Explanation with key characteristics]. [Context on why it matters or how it's used].
 ```
 
 **Example:**
 ```markdown
-## What is Answer Engine Optimization?
+## What is Generative Engine Optimization?
 
-Answer Engine Optimization (AEO) is the practice of structuring content so AI-powered systems can easily extract and present it as direct answers to user queries. Unlike traditional SEO that focuses on ranking in search results, AEO optimizes for featured snippets, AI Overviews, and voice assistant responses. This approach has become essential as over 60% of Google searches now end without a click.
+Generative Engine Optimization (GEO) is the practice of improving how often content is used as a source in AI-generated answers. The term comes from a 2024 research paper (Aggarwal et al., KDD 2024). Google describes optimizing for its generative AI features as "still SEO": the same crawling, indexing and quality systems apply.
 ```
 
 ### Step-by-Step Block
 
-Use for "How to [X]" queries. Optimal for list snippets.
+Use for "How to [X]" topics.
 
 ```markdown
 ## How to [Action/Goal]
 
 [1-sentence overview of the process]
 
-1. **[Step Name]**: [Clear action description in 1-2 sentences]
-2. **[Step Name]**: [Clear action description in 1-2 sentences]
-3. **[Step Name]**: [Clear action description in 1-2 sentences]
-4. **[Step Name]**: [Clear action description in 1-2 sentences]
-5. **[Step Name]**: [Clear action description in 1-2 sentences]
+1. **[Step Name]**: [Clear action description]
+2. **[Step Name]**: [Clear action description]
+3. **[Step Name]**: [Clear action description]
 
-[Optional: Brief note on expected outcome or time estimate]
+[Optional: expected outcome or time estimate, if you know it]
 ```
 
 **Example:**
 ```markdown
-## How to Optimize Content for Featured Snippets
+## How to Check Whether Your Page Is Eligible for AI Overviews
 
-Earning featured snippets requires strategic formatting and direct answers to search queries.
+Google's AI features only use pages that are indexed and eligible to show a snippet.
 
-1. **Identify snippet opportunities**: Use tools like Semrush or Ahrefs to find keywords where competitors have snippets you could capture.
-2. **Match the snippet format**: Analyze whether the current snippet is a paragraph, list, or table, and format your content accordingly.
-3. **Answer the question directly**: Provide a clear, concise answer (40-60 words for paragraph snippets) immediately after the question heading.
-4. **Add supporting context**: Expand on your answer with examples, data, and expert insights in the following paragraphs.
-5. **Use proper heading structure**: Place your target question as an H2 or H3, with the answer immediately following.
-
-Most featured snippets appear within 2-4 weeks of publishing well-optimized content.
+1. **Inspect the URL**: Use Search Console URL Inspection to confirm the page is indexed.
+2. **Check snippet directives**: Make sure the page has no `nosnippet`, `max-snippet:0`, or `data-nosnippet` on its main content.
+3. **Check robots.txt**: Confirm `Googlebot` is not disallowed for the URL.
+4. **Check the site setting**: In Search Console > Settings > Search generative AI, confirm "Include" is selected.
+5. **Measure**: Open the Generative AI performance report and export a baseline.
 ```
+
+Note: HowTo rich results were removed from Google in 2023. Use the numbered list for readers; don't add HowTo schema for Google.
 
 ### Comparison Table Block
 
-Use for "[X] vs [Y]" queries. Optimal for table snippets.
+Use for "[X] vs [Y]" topics.
 
 ```markdown
 ## [Option A] vs [Option B]: [Brief Descriptor]
@@ -76,15 +81,16 @@ Use for "[X] vs [Y]" queries. Optimal for table snippets.
 | [Criteria 1] | [Value/Description] | [Value/Description] |
 | [Criteria 2] | [Value/Description] | [Value/Description] |
 | [Criteria 3] | [Value/Description] | [Value/Description] |
-| [Criteria 4] | [Value/Description] | [Value/Description] |
 | Best For | [Use case] | [Use case] |
 
-**Bottom line**: [1-2 sentence recommendation based on different needs]
+**Bottom line**: [Recommendation based on different needs]
 ```
+
+Date pricing and feature data ("as of [month year]") and say how you tested.
 
 ### Pros and Cons Block
 
-Use for evaluation queries: "Is [X] worth it?", "Should I [X]?"
+Use for evaluation topics: "Is [X] worth it?", "Should I [X]?"
 
 ```markdown
 ## Advantages and Disadvantages of [Topic]
@@ -95,126 +101,117 @@ Use for evaluation queries: "Is [X] worth it?", "Should I [X]?"
 
 - **[Benefit category]**: [Specific explanation]
 - **[Benefit category]**: [Specific explanation]
-- **[Benefit category]**: [Specific explanation]
 
 ### Cons
 
 - **[Drawback category]**: [Specific explanation]
 - **[Drawback category]**: [Specific explanation]
-- **[Drawback category]**: [Specific explanation]
 
-**Verdict**: [1-2 sentence balanced conclusion with recommendation]
+**Verdict**: [Balanced conclusion with recommendation]
 ```
 
 ### FAQ Block
 
-Use for topic pages with multiple common questions. Essential for FAQ schema.
+Use for pages where readers have several distinct questions.
 
 ```markdown
 ## Frequently Asked Questions
 
-### [Question phrased exactly as users search]?
+### [Question as customers actually ask it]?
 
-[Direct answer in first sentence]. [Supporting context in 2-3 additional sentences].
+[Direct answer first]. [Supporting context as long as the question needs].
 
-### [Question phrased exactly as users search]?
+### [Question as customers actually ask it]?
 
-[Direct answer in first sentence]. [Supporting context in 2-3 additional sentences].
-
-### [Question phrased exactly as users search]?
-
-[Direct answer in first sentence]. [Supporting context in 2-3 additional sentences].
+[Direct answer first]. [Supporting context as long as the question needs].
 ```
 
 **Tips for FAQ questions:**
-- Use natural question phrasing ("How do I..." not "How does one...")
-- Include question words: what, how, why, when, where, who, which
-- Match "People Also Ask" queries from search results
-- Keep answers between 50-100 words
+- Source questions from sales calls, support tickets and "People Also Ask"
+- Use natural phrasing ("How do I..." not "How does one...")
+- Answer fully; no word-count target
+
+**Schema note:** Google stopped showing the FAQ rich result on 2026-05-07 and removed its documentation on 2026-06-15. FAQ content is still useful to readers (Bing names FAQ sections as helpful), but `FAQPage` markup no longer earns a Google rich result, and claims that it improves AI citations are unverified. Existing markup is harmless; don't add it expecting a benefit.
 
 ### Listicle Block
 
-Use for "Best [X]", "Top [X]", "[Number] ways to [X]" queries.
+Use for "Best [X]", "Top [X]", "[Number] ways to [X]" topics.
 
 ```markdown
 ## [Number] Best [Items] for [Goal/Purpose]
 
-[1-2 sentence intro establishing context and selection criteria]
+[Intro establishing context and how you selected and tested the items]
 
 ### 1. [Item Name]
 
-[Why it's included in 2-3 sentences with specific benefits]
+[Why it's included, with specific, first-hand detail]
 
 ### 2. [Item Name]
 
-[Why it's included in 2-3 sentences with specific benefits]
-
-### 3. [Item Name]
-
-[Why it's included in 2-3 sentences with specific benefits]
+[Why it's included, with specific, first-hand detail]
 ```
+
+Google's AI guide contrasts a generic "7 Tips for First-Time Homebuyers" with a first-hand account. A listicle stands out only if it contains testing or experience others don't have.
 
 ---
 
-## Generative Engine Optimization (GEO) Patterns
+## Evidence Patterns
 
-These patterns optimize content for citation by AI assistants like ChatGPT, Claude, Perplexity, and Gemini.
+Patterns for supporting claims. Research note [R]: the GEO paper (Aggarwal et al., KDD 2024) reported visibility gains of up to 40% from citing sources, adding quotations and adding statistics, but measured with the source already inside a fixed context; a 2026 critical survey (preprint, arXiv 2607.14035) reports that citation-oriented rewrites can impair retrieval. Use these patterns because sourced claims are better content, not as a guaranteed uplift.
 
 ### Statistic Citation Block
 
-Statistics increase AI citation rates by 15-30%. Always include sources.
+Always include the source and date.
 
 ```markdown
 [Claim statement]. According to [Source/Organization], [specific statistic with number and timeframe]. [Context for why this matters].
 ```
 
-**Example:**
+**Example (verified source):**
 ```markdown
-Mobile optimization is no longer optional for SEO success. According to Google's 2024 Core Web Vitals report, 70% of web traffic now comes from mobile devices, and pages failing mobile usability standards see 24% higher bounce rates. This makes mobile-first indexing a critical ranking factor.
+Most sites still don't publish an llms.txt file. The HTTP Archive Web Almanac 2025 found one on 2.13% of desktop and 2.10% of mobile sites. Google Search doesn't use the file, so its absence is not an SEO problem.
 ```
 
 ### Expert Quote Block
 
-Named expert attribution adds credibility and increases citation likelihood.
+Named attribution adds credibility. Use only real quotes you have permission to use.
 
 ```markdown
 "[Direct quote from expert]," says [Expert Name], [Title/Role] at [Organization]. [1 sentence of context or interpretation].
 ```
 
-**Example:**
+**Example (placeholder, fill with a real interview):**
 ```markdown
-"The shift from keyword-driven search to intent-driven discovery represents the most significant change in SEO since mobile-first indexing," says Rand Fishkin, Co-founder of SparkToro. This perspective highlights why content strategies must evolve beyond traditional keyword optimization.
+"[What your customer or in-house expert actually said about the problem]," says [Name], [Title] at [Company]. [Why this matters for the reader].
 ```
 
 ### Authoritative Claim Block
 
-Structure claims for easy AI extraction with clear attribution.
+State the claim, then the source.
 
 ```markdown
-[Topic] [verb: is/has/requires/involves] [clear, specific claim]. [Source] [confirms/reports/found] that [supporting evidence]. This [explains/means/suggests] [implication or action].
+[Topic] [is/has/requires/involves] [clear, specific claim]. [Source] [confirms/reports/found] that [supporting evidence]. This [means/suggests] [implication or action].
 ```
 
 **Example:**
 ```markdown
-E-E-A-T is the cornerstone of Google's content quality evaluation. Google's Search Quality Rater Guidelines confirm that trust is the most critical factor, stating that "untrustworthy pages have low E-E-A-T no matter how experienced, expert, or authoritative they may seem." This means content creators must prioritize transparency and accuracy above all other optimization tactics.
+E-E-A-T is a framework, not a single ranking signal. Google's guide to creating helpful content states that "E-E-A-T itself isn't a specific ranking factor." This means author bios and credentials help by making content more trustworthy to readers, not by flipping a switch.
 ```
 
-### Self-Contained Answer Block
+### Key Takeaway Block
 
-Create quotable, standalone statements that AI can extract directly.
+A short summary for readers who skim. Write it for people; it is not an AI "answer chunk."
 
 ```markdown
-**[Topic/Question]**: [Complete, self-contained answer that makes sense without additional context. Include specific details, numbers, or examples in 2-3 sentences.]
+**[Topic/Question]**: [Clear summary with the specific details, numbers, or examples from this page.]
 ```
 
 **Example:**
 ```markdown
-**Ideal blog post length for SEO**: The optimal length for SEO blog posts is 1,500-2,500 words for competitive topics. This range allows comprehensive topic coverage while maintaining reader engagement. HubSpot research shows long-form content earns 77% more backlinks than short articles, directly impacting search rankings.
+**Blocking GPTBot**: GPTBot is OpenAI's training crawler. Blocking it opts you out of model training but, per OpenAI's crawler documentation, does not remove you from ChatGPT search, which uses OAI-SearchBot.
 ```
 
 ### Evidence Sandwich Block
-
-Structure claims with evidence for maximum credibility.
 
 ```markdown
 [Opening claim statement].
@@ -229,57 +226,44 @@ Evidence supporting this includes:
 
 ---
 
-## Domain-Specific GEO Tactics
+## Domain-Specific Authority Signals
 
-Different content domains benefit from different authority signals.
+Different domains call for different trust signals [H; stricter standards for health, finance and news align with Google's YMYL guidance].
 
 ### Technology Content
-- Emphasize technical precision and correct terminology
-- Include version numbers and dates for software/tools
-- Reference official documentation
-- Add code examples where relevant
+- Technical precision and correct terminology
+- Version numbers and dates for software/tools
+- Links to official documentation
+- Code examples where relevant
 
 ### Health/Medical Content
 - Cite peer-reviewed studies with publication details
-- Include expert credentials (MD, RN, etc.)
+- Expert credentials (MD, RN, etc.) and reviewer names
 - Note study limitations and context
-- Add "last reviewed" dates
+- "Last reviewed" dates
 
 ### Financial Content
 - Reference regulatory bodies (SEC, FTC, etc.)
-- Include specific numbers with timeframes
+- Specific numbers with timeframes and sources
 - Note that information is educational, not advice
-- Cite recognized financial institutions
 
 ### Legal Content
 - Cite specific laws, statutes, and regulations
-- Reference jurisdiction clearly
-- Include professional disclaimers
-- Note when professional consultation is advised
+- State the jurisdiction clearly
+- Professional disclaimers; note when to consult a lawyer
 
 ### Business/Marketing Content
-- Include case studies with measurable results
-- Reference industry research and reports
-- Add percentage changes and timeframes
-- Quote recognized thought leaders
+- Case studies with real, measurable results
+- Primary industry research and reports (not recycled blog stats)
+- Percentage changes with timeframes and baselines
 
 ---
 
-## Voice Search Optimization
+## Voice and Conversational Queries
 
-Voice queries are conversational and question-based. Optimize for these patterns:
+Spoken and chat-style queries tend to be full questions ("How do I...", "What is...", "Where can I find..."). AI systems "can understand synonyms and general meanings" [V Google], so you don't need a page per phrasing.
 
-### Question Formats for Voice
-- "What is..."
-- "How do I..."
-- "Where can I find..."
-- "Why does..."
-- "When should I..."
-- "Who is..."
-
-### Voice-Optimized Answer Structure
-- Lead with direct answer (under 30 words ideal)
+- Answer the question directly, then give the detail
 - Use natural, conversational language
-- Avoid jargon unless targeting expert audience
-- Include local context where relevant
-- Structure for single spoken response
+- Avoid jargon unless targeting an expert audience
+- Include local context (address, hours, service area) and keep Google Business Profile / Bing Places current for local queries [V]

@@ -2,7 +2,7 @@
 name: competitor-alternatives
 description: "When the user wants to create competitor comparison or alternative pages for SEO and sales enablement. Also use when the user mentions 'alternative page,' 'vs page,' 'competitor comparison,' 'comparison page,' '[Product] vs [Product],' '[Product] alternative,' 'competitive landing pages,' 'how do we compare to X,' 'battle card,' or 'competitor teardown.' Use this for any content that positions your product against competitors. Covers four formats: singular alternative, plural alternatives, you vs competitor, and competitor vs competitor. For sales-specific competitor docs, see sales-enablement."
 metadata:
-  version: 1.1.0
+  version: 1.2.1
 ---
 
 # Competitor & Alternative Pages
@@ -221,7 +221,7 @@ For each competitor, gather:
 - Create hub page linking to all competitor content
 
 ### Schema Markup
-Consider FAQ schema for common questions like "What is the best alternative to [Competitor]?"
+FAQ sections answering questions like "What is the best alternative to [Competitor]?" can help readers, but don't add FAQPage schema expecting a rich result: Google stopped showing the FAQ rich result on 2026-05-07 ([changelog](https://developers.google.com/search/updates#deprecating-the-faq-rich-result-feature)). Use `BreadcrumbList`, and `Product`/`SoftwareApplication` or `Review` markup only where it matches visible content and Google's guidelines. See **schema-markup**.
 
 ---
 

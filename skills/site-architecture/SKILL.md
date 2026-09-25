@@ -2,7 +2,7 @@
 name: site-architecture
 description: When the user wants to plan, map, or restructure their website's page hierarchy, navigation, URL structure, or internal linking. Also use when the user mentions "sitemap," "site map," "visual sitemap," "site structure," "page hierarchy," "information architecture," "IA," "navigation design," "URL structure," "breadcrumbs," "internal linking strategy," "website planning," "what pages do I need," "how should I organize my site," or "site navigation." Use this whenever someone is planning what pages a website should have and how they connect. NOT for XML sitemaps (that's technical SEO — see seo-audit). For SEO audits, see seo-audit. For structured data, see schema-markup.
 metadata:
-  version: 1.1.0
+  version: 1.3.0
 ---
 
 # Site Architecture
@@ -58,9 +58,11 @@ Gather this context (ask if not provided):
 
 ## Page Hierarchy Design
 
+Evidence tags used below: **[V]** documented by Google or another search vendor (source linked); **[H]** practitioner heuristic.
+
 ### The 3-Click Rule
 
-Users should reach any important page within 3 clicks from the homepage. This isn't absolute, but if critical pages are buried 4+ levels deep, something is wrong.
+Users should reach any important page within 3 clicks from the homepage [H: practitioner rule of thumb]. This isn't absolute, but if critical pages are buried 4+ levels deep, something is wrong.
 
 ### Flat vs Deep
 
@@ -271,7 +273,7 @@ graph TD
 
 1. **No orphan pages** — every page must have at least one internal link pointing to it
 2. **Descriptive anchor text** — "our analytics features" not "click here"
-3. **5-10 internal links per 1000 words** of content (approximate guideline)
+3. **5-10 internal links per 1000 words** of content (approximate heuristic [H]; no search engine documents a target)
 4. **Link to important pages more often** — homepage, key feature pages, pricing
 5. **Use breadcrumbs** — free internal links on every page
 6. **Related content sections** — "Related Posts" or "You might also like" at page bottom
