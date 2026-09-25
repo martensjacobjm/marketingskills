@@ -4,72 +4,74 @@
     {
       "id": 1,
       "prompt": "How do I make sure our SaaS product shows up in AI search results? We're a project management tool and we keep getting left out of ChatGPT and Perplexity recommendations when people ask about project management software.",
-      "expected_output": "Should check for product-marketing-context.md first. Should apply the three pillars framework: Structure (make content extractable), Authority (make content citable), Presence (be where AI looks). Should run through the AI Visibility Audit checklist across platforms (Google AI Overviews, ChatGPT, Perplexity, etc.). Should check content extractability (clear definitions, structured comparisons, statistics). Should reference Princeton GEO research findings (citations improve visibility +40%, statistics +37%). Should check AI bot access in robots.txt. Should provide a prioritized action plan.",
+      "expected_output": "Should check for product-marketing-context.md first. Should apply the three pillars framework: Structure (accessible, clear content), Authority (non-commodity content worth citing), Presence (eligibility, first-party profiles, authentic third-party discussion). Should start measurement with first-party data (Search Console Generative AI report, Bing Webmaster Tools AI Performance) and then spot-check ChatGPT, Perplexity and Google AI answers as samples. Should check crawler access per token: OAI-SearchBot for ChatGPT search and PerplexityBot for Perplexity (not GPTBot, which is training-only). Should recommend first-hand experience, original data and cited sources. If it mentions the GEO paper (KDD 2024), it must state the caveat that gains were measured in a fixed context and that a 2026 survey finds citation-oriented rewrites can impair retrieval. Should not recommend llms.txt, fixed answer lengths, or FAQ schema as AI levers. Should tag recommendations [V]/[R]/[H] and provide a prioritized action plan.",
       "assertions": [
         "Checks for product-marketing-context.md",
         "Applies three pillars framework (Structure, Authority, Presence)",
-        "Runs AI Visibility Audit across platforms",
-        "Checks content extractability",
-        "References Princeton GEO research findings",
-        "Checks AI bot access in robots.txt",
-        "Provides prioritized action plan"
+        "Uses Search Console Generative AI report and/or Bing AI Performance for measurement",
+        "Identifies OAI-SearchBot and PerplexityBot as the search crawlers to allow (GPTBot is training-only)",
+        "Recommends non-commodity content (first-hand experience, original data, cited sources)",
+        "Any GEO paper numbers are given with the fixed-context caveat",
+        "Does not recommend llms.txt, fixed answer lengths, or FAQ schema for AI citations",
+        "Provides prioritized action plan with evidence tags"
       ],
       "files": []
     },
     {
       "id": 2,
       "prompt": "Should we block AI crawlers like GPTBot and PerplexityBot in our robots.txt? We're worried about content theft.",
-      "expected_output": "Should address the AI bot access question directly. Should explain the tradeoff: blocking AI bots prevents training on your content but also prevents AI platforms from citing and recommending you. Should reference the specific bots and their purposes (GPTBot, Google-Extended, PerplexityBot, ClaudeBot, etc.). Should provide the recommended robots.txt configuration. Should explain that blocking may hurt AI visibility more than it protects content. Should provide a nuanced recommendation based on business goals.",
+      "expected_output": "Should address the question directly by separating training crawlers from search crawlers, per vendor docs. GPTBot is OpenAI's training crawler; blocking it does not remove the site from ChatGPT search, which uses OAI-SearchBot (OpenAI documents the settings as independent). PerplexityBot is Perplexity's search crawler and is not used for training, so blocking it removes the site from Perplexity answers without protecting against training. Should cover ClaudeBot (training) vs Claude-SearchBot/Claude-User (search), Google-Extended (Gemini training/grounding; does not affect Search or AI Overviews) and CCBot. Should provide a robots.txt that allows search tokens and blocks training tokens as an option. Should warn not to block Googlebot to avoid AI Overviews (use nosnippet/max-snippet instead). Should frame the decision around business goals.",
       "assertions": [
-        "Addresses the blocking tradeoff directly",
-        "Explains impact on AI visibility vs content protection",
-        "Lists specific AI bot user agents",
-        "Provides recommended robots.txt configuration",
-        "Gives nuanced recommendation based on business goals",
-        "Explains what each bot does"
+        "Distinguishes training crawlers from search crawlers",
+        "States GPTBot is training-only and ChatGPT search uses OAI-SearchBot",
+        "States PerplexityBot is a search crawler, not used for training",
+        "Explains Google-Extended does not affect Google Search or AI Overviews",
+        "Provides robots.txt allowing search tokens and blocking training tokens",
+        "Warns against blocking Googlebot to avoid AI Overviews",
+        "Gives nuanced recommendation based on business goals"
       ],
       "files": []
     },
     {
       "id": 3,
       "prompt": "What kind of content gets cited most by AI systems? We want to create content specifically optimized for AI search.",
-      "expected_output": "Should reference the content types that get cited most, including comparisons (~33% of AI citations), definitive guides (~15%), and other high-citation content types. Should explain why these formats work (they provide the structured, extractable, authoritative information AI systems need). Should provide specific recommendations for creating AI-optimized content: clear definitions, structured data, original statistics, comparison tables, expert quotes. Should reference the Princeton GEO research on what increases citation probability.",
+      "expected_output": "Should explain that no verified data shows which content formats get cited most, so it should not quote citation-share percentages by format. Should cite Google's guidance that there is no special format for AI (no chunking, no ideal length, no need to write specially for AI) and prioritize non-commodity content: first-hand experience, original research/data, unique viewpoints, tools (Google's '7 Tips for First-Time Homebuyers' vs first-hand account contrast). Should recommend comparison tables, clear headings and cited sources where they help readers (Bing guidance). If the GEO paper is mentioned, it must include its fixed-context caveat. Should recommend structured data only for rich-result eligibility, not as an AI lever.",
       "assertions": [
-        "References specific content types with citation rates",
-        "Mentions comparisons as highest-cited format",
-        "Explains why these formats work for AI",
-        "Provides specific content creation recommendations",
-        "References Princeton GEO research",
-        "Mentions structured data, statistics, and clear definitions"
+        "Does not quote unsourced citation-share percentages by content type",
+        "Explains Google says there is no AI-specific format (no chunking or ideal length)",
+        "Prioritizes non-commodity content (first-hand, original data, unique view)",
+        "Recommends clear headings, tables and cited sources for readers",
+        "Any GEO research is presented with its caveat",
+        "Positions structured data for rich-result eligibility, not AI citations"
       ],
       "files": []
     },
     {
       "id": 4,
       "prompt": "we noticed our competitors are showing up in google AI overviews but we're not. what do we need to change?",
-      "expected_output": "Should trigger on casual phrasing. Should focus specifically on Google AI Overviews visibility. Should explain how AI Overviews selects sources (authoritative, well-structured, directly answers queries). Should run through the Structure pillar checklist: content extractability, heading hierarchy, answer-first format, structured data. Should check Authority signals: domain authority, citations, E-E-A-T. Should recommend specific content structure changes. Should suggest monitoring approach.",
+      "expected_output": "Should trigger on casual phrasing. Should focus on Google AI Overviews / AI Mode. Should explain that they are rooted in Google's core ranking and quality systems (with query fan-out), so it is 'still SEO'. Should check eligibility first: indexed, snippet-eligible (no nosnippet/data-nosnippet/max-snippet:0), Googlebot allowed, Search Console 'Search generative AI' setting on Include. Should compare content uniqueness and sourcing against the cited competitors and recommend non-commodity improvements. Should not recommend special schema, llms.txt, chunking or fixed answer lengths. Should suggest monitoring via the Search Console Generative AI report.",
       "assertions": [
         "Triggers on casual phrasing",
         "Focuses on Google AI Overviews specifically",
-        "Explains how AI Overviews selects sources",
-        "Checks Structure pillar (extractability, headings, answer-first)",
-        "Checks Authority signals",
-        "Recommends specific content structure changes",
-        "Suggests monitoring approach"
+        "Explains AI Overviews are rooted in core Search ranking",
+        "Checks indexing and snippet eligibility and the Search Console generative AI setting",
+        "Recommends non-commodity content improvements",
+        "Does not recommend special AI schema, llms.txt, or chunking",
+        "Suggests Search Console Generative AI report for monitoring"
       ],
       "files": []
     },
     {
       "id": 5,
       "prompt": "Can you audit our website for AI search readiness? We want to know how visible we are across ChatGPT, Perplexity, Google AI Overviews, and other AI platforms.",
-      "expected_output": "Should run the full AI Visibility Audit. Should check each platform in the landscape (Google AI Overviews, ChatGPT, Perplexity, Claude, Gemini, Copilot). Should evaluate all three pillars: Structure (content extractability, JSON-LD, clear definitions), Authority (citations, backlinks, E-E-A-T signals), Presence (AI bot access, platform-specific factors). Should provide findings organized by pillar. Should provide a prioritized action plan with specific fixes.",
+      "expected_output": "Should run the AI Visibility Audit: first-party measurement (Search Console Generative AI report, Bing AI Performance), spot checks across platforms, eligibility and content checks. Should cover each platform's documented controls (Googlebot and snippet eligibility for AI Overviews/AI Mode, OAI-SearchBot for ChatGPT search, PerplexityBot, Claude-SearchBot, bingbot and NOCACHE/NOARCHIVE for Copilot, Google-Extended for Gemini Apps). Should evaluate all three pillars: Structure (headings, semantic HTML, rich media, critical content in HTML), Authority (non-commodity content, cited sources), Presence (eligibility, Merchant Center/GBP/Bing Places, authentic third-party discussion). Should report llms.txt as informational only. Should organize findings by pillar with evidence tags and a prioritized action plan.",
       "assertions": [
-        "Runs full AI Visibility Audit",
-        "Checks multiple AI platforms",
+        "Runs AI Visibility Audit including first-party measurement",
+        "Checks multiple AI platforms using their documented crawler tokens",
         "Evaluates all three pillars (Structure, Authority, Presence)",
-        "Checks content extractability",
-        "Checks AI bot access",
-        "Provides findings organized by pillar",
+        "Checks indexing and snippet eligibility",
+        "Treats llms.txt as informational only",
+        "Provides findings organized by pillar with evidence tags",
         "Provides prioritized action plan"
       ],
       "files": []
@@ -83,6 +85,20 @@
         "References or defers to seo-audit skill",
         "Does not attempt a full traditional SEO audit using AI SEO patterns",
         "May mention AI search as one factor to consider"
+      ],
+      "files": []
+    },
+    {
+      "id": 7,
+      "prompt": "Should we add an llms.txt file and FAQ schema so ChatGPT and Google AI Overviews cite us more?",
+      "expected_output": "Should say neither is a documented AI visibility lever. Google Search does not use llms.txt (AI optimization guide, 2026-07-10) and no other engine documents reading it; it is a proposal, not a standard, so treat it as optional and informational. Google says there is no special schema for AI, and the FAQ rich result is no longer shown since 2026-05-07; FAQ content can still help readers. Should redirect effort to documented levers: allow OAI-SearchBot and Googlebot, keep pages indexable and snippet-eligible, non-commodity content with cited sources, and measure with Search Console Generative AI and Bing AI Performance reports.",
+      "assertions": [
+        "States Google Search does not use llms.txt",
+        "States no other engine documents reading llms.txt",
+        "States there is no special schema for AI and the FAQ rich result is gone",
+        "Does not promise citation gains from either",
+        "Redirects to documented levers (crawler access, snippet eligibility, non-commodity content)",
+        "Recommends first-party measurement"
       ],
       "files": []
     }

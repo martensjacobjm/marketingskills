@@ -2,7 +2,7 @@
 name: programmatic-seo
 description: When the user wants to create SEO-driven pages at scale using templates and data. Also use when the user mentions "programmatic SEO," "template pages," "pages at scale," "directory pages," "location pages," "[keyword] + [city] pages," "comparison pages," "integration pages," "building many pages for SEO," "pSEO," "generate 100 pages," "data-driven pages," or "templated landing pages." Use this whenever someone wants to create many similar pages targeting different keywords or locations. For auditing existing SEO issues, see seo-audit. For content strategy planning, see content-strategy.
 metadata:
-  version: 1.1.0
+  version: 1.3.0
 ---
 
 # Programmatic SEO
@@ -35,6 +35,8 @@ Before designing a programmatic SEO strategy, understand:
 
 ## Core Principles
 
+Evidence tags used below: **[V]** documented by Google or another search vendor (source linked); **[H]** practitioner heuristic.
+
 ### 1. Unique Value Per Page
 - Every page must provide value specific to that page
 - Not just swapped variables in a template
@@ -49,7 +51,7 @@ Hierarchy of data defensibility:
 5. Public (anyone can use—weakest)
 
 ### 3. Clean URL Structure
-**Use subfolders, not subdomains** — subfolders consolidate domain authority while subdomains split it:
+**Use subfolders, not subdomains** [H] — practitioner preference: subfolders keep pages inside the main site's structure and internal linking:
 - Good: `yoursite.com/templates/resume/`
 - Bad: `templates.yoursite.com/resume/`
 
@@ -60,10 +62,16 @@ Pages must actually answer what people are searching for.
 Better to have 100 great pages than 10,000 thin ones.
 
 ### 6. Avoid Google Penalties
-- No doorway pages
-- No keyword stuffing
+
+Google's [spam policies](https://developers.google.com/search/docs/essentials/spam-policies) [V] define the two main risks for programmatic pages:
+- **Scaled content abuse**: "many pages are generated for the primary purpose of manipulating search rankings and not helping users"
+- **Doorway abuse**: pages "created to rank for specific, similar search queries" that lead users to less useful intermediate pages
+
+Also:
+- No keyword stuffing [V]
 - No duplicate content
 - Genuine utility for users
+- Don't generate pages for every query variant to target AI answers: Google calls creating pages for each fan-out query to manipulate AI responses scaled content abuse ([AI optimization guide](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide)) [V]
 
 ---
 
@@ -173,7 +181,7 @@ You can layer multiple playbooks (e.g., "Best coworking spaces in San Diego").
 **Technical SEO:**
 - [ ] Unique titles and meta descriptions
 - [ ] Proper heading structure
-- [ ] Schema markup implemented
+- [ ] Schema markup implemented (types with a current Google rich result; not FAQPage/HowTo, whose rich results are gone)
 - [ ] Page speed acceptable
 
 **Internal linking:**

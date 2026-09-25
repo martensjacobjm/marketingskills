@@ -2,7 +2,7 @@
 name: seo-audit
 description: When the user wants to audit, review, or diagnose SEO issues on their site. Also use when the user mentions "SEO audit," "technical SEO," "why am I not ranking," "SEO issues," "on-page SEO," "meta tags review," "SEO health check," "my traffic dropped," "lost rankings," "not showing up in Google," "site isn't ranking," "Google update hit me," "page speed," "core web vitals," "crawl errors," or "indexing issues." Use this even if the user just says something vague like "my SEO is bad" or "help with SEO" — start with an audit. For building pages at scale to target keywords, see programmatic-seo. For adding structured data, see schema-markup. For AI search optimization, see ai-seo.
 metadata:
-  version: 1.1.0
+  version: 1.3.0
 ---
 
 # SEO Audit
@@ -47,6 +47,8 @@ Many CMS plugins (AIOSEO, Yoast, RankMath) inject JSON-LD via client-side JavaSc
 3. **Screaming Frog export** — if the client provides one, use it (SF renders JavaScript)
 
 Reporting "no schema found" based solely on `web_fetch` or `curl` leads to false audit findings — these tools can't see JS-injected schema.
+
+Items tagged **[V]** are documented by Google or another search vendor (source linked); untagged checks are established practice.
 
 ### Priority Order
 1. **Crawlability & Indexation** (can Google find and index it?)
@@ -108,10 +110,10 @@ Reporting "no schema found" based solely on `web_fetch` or `curl` leads to false
 
 ### Site Speed & Core Web Vitals
 
-**Core Web Vitals**
-- LCP (Largest Contentful Paint): < 2.5s
-- INP (Interaction to Next Paint): < 200ms
-- CLS (Cumulative Layout Shift): < 0.1
+**Core Web Vitals** (good thresholds, assessed at the 75th percentile of real-user field data; [web.dev](https://web.dev/articles/vitals)) [V]
+- LCP (Largest Contentful Paint): ≤ 2.5s
+- INP (Interaction to Next Paint): ≤ 200ms (INP replaced FID in March 2024)
+- CLS (Cumulative Layout Shift): ≤ 0.1
 
 **Speed Factors**
 - Server response time (TTFB)
@@ -215,7 +217,8 @@ Reporting "no schema found" based solely on `web_fetch` or `curl` leads to false
 **Thin Content Issues**
 - Pages with little unique content
 - Tag/category pages with no value
-- Doorway pages
+- Doorway pages ("created to rank for specific, similar search queries") [V]
+- Scaled content abuse: "many pages are generated for the primary purpose of manipulating search rankings and not helping users" ([Google spam policies](https://developers.google.com/search/docs/essentials/spam-policies)) [V]
 - Duplicate or near-duplicate content
 
 ### Image Optimization
@@ -263,6 +266,8 @@ Reporting "no schema found" based solely on `web_fetch` or `curl` leads to false
 ## Content Quality Assessment
 
 ### E-E-A-T Signals
+
+Google: "E-E-A-T itself isn't a specific ranking factor" ([creating helpful content](https://developers.google.com/search/docs/fundamentals/creating-helpful-content)) [V]. Use these as quality and trust checks, not as ranking switches.
 
 **Experience**
 - First-hand experience demonstrated
@@ -370,6 +375,14 @@ Same format as above
 - [AI Writing Detection](references/ai-writing-detection.md): Common AI writing patterns to avoid (em dashes, overused phrases, filler words)
 - For AI search optimization (AEO, GEO, LLMO, AI Overviews), see the **ai-seo** skill
 
+### AI Search Eligibility (quick checks)
+
+Google's AI Overviews and AI Mode are rooted in core Search ranking; a page must be indexed and eligible to show a snippet ([AI optimization guide](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide)) [V]. During a standard audit, flag:
+- `nosnippet`, `max-snippet:0` or `data-nosnippet` on main content (blocks AI Overviews use) [V]
+- robots.txt blocks on search crawlers (`Googlebot`, `bingbot`, `OAI-SearchBot`, `PerplexityBot`, `Claude-SearchBot`). Blocks on training-only tokens (`GPTBot`, `ClaudeBot`, `Google-Extended`, `CCBot`) are a business choice, not an SEO issue [V]
+- Missing `llms.txt`: not an issue. Google Search doesn't use it [V]
+- FAQPage / HowTo markup: Info only. FAQ rich results stopped 2026-05-07; HowTo rich results were removed in 2023 ([changelog](https://developers.google.com/search/updates)) [V]
+
 ---
 
 ## Tools Referenced
@@ -379,7 +392,7 @@ Same format as above
 - Google PageSpeed Insights
 - Bing Webmaster Tools
 - Rich Results Test (**use this for schema validation — it renders JavaScript**)
-- Mobile-Friendly Test
+- Lighthouse / Chrome DevTools device emulation for mobile checks (Google retired the Mobile-Friendly Test and Mobile Usability report in December 2023; [changelog](https://developers.google.com/search/updates))
 - Schema Validator
 
 > **Note on schema detection:** `web_fetch` strips `<script>` tags (including JSON-LD) and cannot detect JS-injected schema. Use the browser tool, Rich Results Test, or Screaming Frog instead — they render JavaScript and capture dynamically-injected markup. See the Schema Markup Detection Limitation section above.

@@ -4,12 +4,12 @@ Complete JSON-LD examples for common schema types.
 
 ## Contents
 - Organization
-- WebSite (with SearchAction)
+- WebSite (site name; SearchAction optional)
 - Article / BlogPosting
 - Product
 - SoftwareApplication
-- FAQPage
-- HowTo
+- FAQPage (no Google rich result since 2026-05-07)
+- HowTo (no Google rich result since 2023)
 - BreadcrumbList
 - LocalBusiness
 - Event
@@ -42,9 +42,9 @@ For company/brand homepage or about page.
 
 ---
 
-## WebSite (with SearchAction)
+## WebSite (site name; SearchAction optional)
 
-For homepage, enables sitelinks search box.
+For the homepage. Google uses `WebSite` `name` / `alternateName` for site names. The sitelinks search box that `SearchAction` used to enable was removed from Google Search in November 2024 ([changelog](https://developers.google.com/search/updates)), so `potentialAction` is optional and earns no Google feature.
 
 ```json
 {
@@ -162,7 +162,7 @@ For SaaS product pages and app landing pages.
 
 ## FAQPage
 
-For pages with frequently asked questions.
+For pages with frequently asked questions. **Status:** Google stopped showing the FAQ rich result on 2026-05-07 and removed its documentation on 2026-06-15 ([changelog](https://developers.google.com/search/updates#deprecating-the-faq-rich-result-feature)). The markup is valid schema.org and harmless, but don't add it expecting a Google rich result or AI citations (unverified). Keep the visible FAQ content if it helps users.
 
 ```json
 {
@@ -193,7 +193,7 @@ For pages with frequently asked questions.
 
 ## HowTo
 
-For instructional content and tutorials.
+For instructional content and tutorials. **Status:** Google removed HowTo rich results in 2023 ([changelog](https://developers.google.com/search/updates#how-to-deprecation)). Valid schema.org, but don't recommend it for Google Search; a clear numbered list on the page serves readers. Example kept for other consumers of schema.org data.
 
 ```json
 {
